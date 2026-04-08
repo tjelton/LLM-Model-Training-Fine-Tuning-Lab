@@ -927,3 +927,114 @@ body {
     justify-content: center;
   }
 }
+
+/* ===== PROGRESS FLOWCHART ===== */
+.progress-chart-wrap {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 0.75rem 0.75rem 0.25rem;
+  margin-bottom: 0.75rem;
+  overflow-x: auto;
+}
+.progress-chart-where {
+  font-size: 0.82rem;
+  color: var(--clr-accent);
+  background: var(--clr-primary-light);
+  border-left: 3px solid var(--clr-primary);
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  padding: 0.4rem 0.65rem;
+}
+
+/* ===== INTRODUCTION FLOW ===== */
+.intro-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.intro-flow-arrow {
+  display: flex;
+  justify-content: center;
+  padding: 0.25rem 0;
+  opacity: 0.5;
+}
+
+.intro-flow-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+  padding: 1rem 1.25rem;
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.intro-flow-card:hover {
+  border-color: rgba(124, 110, 245, 0.35);
+  box-shadow: var(--shadow-sm);
+}
+
+.intro-flow-badge {
+  background: var(--clr-primary-light);
+  color: var(--clr-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.intro-flow-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.intro-flow-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--clr-text);
+  margin-bottom: 0.2rem;
+}
+
+.intro-flow-desc {
+  font-size: 0.82rem;
+  color: var(--clr-text-muted);
+  line-height: 1.5;
+  margin-bottom: 0.4rem;
+}
+
+.intro-flow-type {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.intro-flow-type--theory {
+  background: var(--clr-primary-light);
+  color: var(--clr-accent);
+}
+
+.intro-flow-type--hands-on {
+  background: var(--clr-device-bg);
+  color: var(--clr-device-title);
+}
+
+.intro-flow-type--discussion {
+  background: var(--clr-discussion-bg);
+  color: var(--clr-discussion-title);
+}

@@ -37,12 +37,71 @@
         <!-- Left: summary -->
         <div class="home-summary">
           <h3>About this Lab</h3>
-          <p>In this lab, you will get hands-on experience with a real
-            language model. You will explore how models like GPT-2 are
-            pre-trained, load and interact with one yourself, consider the
-            ethical implications of AI, experiment with different text
-            generation strategies, and fine-tune a model on your own data.
-            No prior coding experience is required.</p>
+          <p style="margin-bottom:1rem;">In this lab, you will explore how large language models work — from how they are trained, to how they generate text, to the ethical questions they raise. You will load and run a real model, experiment with different text generation strategies, and fine-tune it on your own data. No prior coding experience is required.</p>
+
+          <h3 style="margin-top:1rem;">Learning Outcomes</h3>
+          <p style="font-size:0.85rem;margin-bottom:0.6rem;">By the end of this lab, you should be able to:</p>
+          <ul style="list-style:none;padding:0;margin:0 0 1.25rem;display:flex;flex-direction:column;gap:0.45rem;">
+            <li style="font-size:0.85rem;color:var(--clr-text-muted);padding-left:1.2rem;position:relative;line-height:1.6;">
+              <span style="position:absolute;left:0;color:var(--clr-primary);">&#10003;</span>
+              Understand the key steps in LLM pre-training: tokenisation, embedding, attention, next-token prediction, loss calculation, and backpropagation.
+            </li>
+            <li style="font-size:0.85rem;color:var(--clr-text-muted);padding-left:1.2rem;position:relative;line-height:1.6;">
+              <span style="position:absolute;left:0;color:var(--clr-primary);">&#10003;</span>
+              Understand how training differs from inference, and that there are different sampling methods for selecting the next token.
+            </li>
+            <li style="font-size:0.85rem;color:var(--clr-text-muted);padding-left:1.2rem;position:relative;line-height:1.6;">
+              <span style="position:absolute;left:0;color:var(--clr-primary);">&#10003;</span>
+              Understand the difference between pre-training and fine-tuning.
+            </li>
+            <li style="font-size:0.85rem;color:var(--clr-text-muted);padding-left:1.2rem;position:relative;line-height:1.6;">
+              <span style="position:absolute;left:0;color:var(--clr-primary);">&#10003;</span>
+              Critically evaluate the ethical concerns related to LLM pre-training and fine-tuning.
+            </li>
+          </ul>
+
+          <svg viewBox="0 0 700 280" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;margin-top:0.25rem;">
+            <defs>
+              <marker id="arrowFlow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#7c6ef5"/>
+              </marker>
+              <marker id="arrowFlowCyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#0891b2"/>
+              </marker>
+            </defs>
+            <!-- Training container -->
+            <rect x="20" y="63" width="290" height="96" rx="16" fill="rgba(124,110,245,0.05)" stroke="#7c6ef5" stroke-width="1.5"/>
+            <text x="165" y="88" text-anchor="middle" fill="#a899f8" font-size="13" font-weight="700" font-family="Inter, sans-serif">Training</text>
+            <!-- Pre-training -->
+            <rect x="40" y="103" width="115" height="44" rx="8" fill="rgba(124,110,245,0.12)" stroke="#7c6ef5" stroke-width="1.5"/>
+            <text x="97" y="130" text-anchor="middle" fill="#a899f8" font-size="11.5" font-weight="600" font-family="Inter, sans-serif">Pre-training</text>
+            <!-- Arrow: Pre-training → Fine-tuning -->
+            <line x1="155" y1="125" x2="172" y2="125" stroke="#7c6ef5" stroke-width="2" marker-end="url(#arrowFlow)"/>
+            <!-- Fine-tuning -->
+            <rect x="178" y="103" width="115" height="44" rx="8" fill="rgba(52,211,153,0.1)" stroke="#059669" stroke-width="1.5"/>
+            <text x="235" y="130" text-anchor="middle" fill="#34d399" font-size="11.5" font-weight="600" font-family="Inter, sans-serif">Fine-tuning</text>
+            <!-- Arrow: Training → Model -->
+            <line x1="310" y1="111" x2="405" y2="111" stroke="#7c6ef5" stroke-width="2" marker-end="url(#arrowFlow)"/>
+            <!-- Prompt -->
+            <rect x="430" y="22" width="90" height="38" rx="8" fill="rgba(34,211,238,0.08)" stroke="#0891b2" stroke-width="1.5"/>
+            <text x="475" y="46" text-anchor="middle" fill="#22d3ee" font-size="11.5" font-weight="600" font-family="Inter, sans-serif">Prompt</text>
+            <!-- Arrow: Prompt → Model -->
+            <line x1="475" y1="60" x2="475" y2="82" stroke="#0891b2" stroke-width="2" marker-end="url(#arrowFlowCyan)"/>
+            <!-- Model -->
+            <rect x="410" y="86" width="130" height="50" rx="8" fill="#1e2535" stroke="#242c3d" stroke-width="1.5"/>
+            <text x="475" y="116" text-anchor="middle" fill="#e6eaf4" font-size="13" font-weight="700" font-family="Inter, sans-serif">Model</text>
+            <!-- Arrow: Model → Output -->
+            <line x1="540" y1="111" x2="600" y2="111" stroke="#0891b2" stroke-width="2" marker-end="url(#arrowFlowCyan)"/>
+            <text x="570" y="101" text-anchor="middle" fill="#22d3ee" font-size="9.5" font-style="italic" font-weight="600" font-family="Inter, sans-serif">Inference</text>
+            <!-- Output -->
+            <rect x="606" y="86" width="80" height="50" rx="8" fill="rgba(34,211,238,0.08)" stroke="#0891b2" stroke-width="1.5"/>
+            <text x="646" y="116" text-anchor="middle" fill="#22d3ee" font-size="12" font-weight="600" font-family="Inter, sans-serif">Output</text>
+            <!-- Ethical Considerations line -->
+            <line x1="20" y1="210" x2="686" y2="210" stroke="#b45309" stroke-width="1.5"/>
+            <line x1="20" y1="202" x2="20" y2="218" stroke="#b45309" stroke-width="1.5"/>
+            <line x1="686" y1="202" x2="686" y2="218" stroke="#b45309" stroke-width="1.5"/>
+            <text x="353" y="235" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="700" font-family="Inter, sans-serif">Ethical Considerations</text>
+          </svg>
         </div>
 
         <!-- Right: stacked task list -->
@@ -68,8 +127,8 @@
           <a class="task-card" data-page="task3">
             <span class="task-badge">Task 3</span>
             <span class="task-info">
-              <span class="task-title">Ethical Considerations</span>
-              <span class="task-desc">Explore case studies on the ethics of training and fine-tuning AI.</span>
+              <span class="task-title">Token Prediction</span>
+              <span class="task-desc">Experiment with different sampling methods for text generation.</span>
             </span>
             <span class="task-arrow">&rarr;</span>
           </a>
@@ -77,8 +136,8 @@
           <a class="task-card" data-page="task4">
             <span class="task-badge">Task 4</span>
             <span class="task-info">
-              <span class="task-title">Token Prediction</span>
-              <span class="task-desc">Experiment with different sampling methods for text generation.</span>
+              <span class="task-title">Fine-Tuning</span>
+              <span class="task-desc">Fine-tune GPT-2 on custom data and compare the results.</span>
             </span>
             <span class="task-arrow">&rarr;</span>
           </a>
@@ -86,8 +145,17 @@
           <a class="task-card" data-page="task5">
             <span class="task-badge">Task 5</span>
             <span class="task-info">
-              <span class="task-title">Fine-Tuning</span>
-              <span class="task-desc">Fine-tune GPT-2 on custom data and compare the results.</span>
+              <span class="task-title">Ethical Considerations</span>
+              <span class="task-desc">Explore case studies on the ethics of training and fine-tuning AI.</span>
+            </span>
+            <span class="task-arrow">&rarr;</span>
+          </a>
+
+          <a class="task-card" data-page="conclusion">
+            <span class="task-badge">CONC</span>
+            <span class="task-info">
+              <span class="task-title">Conclusion</span>
+              <span class="task-desc">Review what you have learned and how it all fits together.</span>
             </span>
             <span class="task-arrow">&rarr;</span>
           </a>
@@ -105,8 +173,36 @@
         <div class="breadcrumb">Task 1 of 5</div>
         <span class="duration">~20 min</span>
         <h2>Model Pre-Training</h2>
-        <p class="task-intro">In the first task, we start with a recap on model pre-training.</p>
       </div>
+
+      <div class="progress-chart-wrap">
+        <p class="progress-chart-where">We begin at the very start — learning how a language model is built through pre-training.</p>
+        <svg viewBox="0 0 700 250" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;">
+          <defs>
+            <marker id="af-t1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7c6ef5"/></marker>
+            <marker id="afc-t1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0891b2"/></marker>
+          </defs>
+          <!-- Training outer: active -->
+          <g opacity="1"><rect x="20" y="63" width="290" height="96" rx="16" fill="rgba(124,110,245,0.05)" stroke="#7c6ef5" stroke-width="1.5"/><text x="165" y="88" text-anchor="middle" fill="#a899f8" font-size="13" font-weight="700" font-family="Inter,sans-serif">Training</text></g>
+          <!-- Pre-training: HIGHLIGHT -->
+          <g opacity="1"><rect x="40" y="103" width="115" height="44" rx="8" fill="rgba(124,110,245,0.18)" stroke="#7c6ef5" stroke-width="2.5"/><text x="97" y="130" text-anchor="middle" fill="#a899f8" font-size="11.5" font-weight="600" font-family="Inter,sans-serif">Pre-training</text><circle cx="150" cy="100" r="6" fill="#fbbf24"/></g>
+          <!-- Pre→Fine arrow: future -->
+          <g opacity="0.15"><line x1="155" y1="125" x2="172" y2="125" stroke="#7c6ef5" stroke-width="2" marker-end="url(#af-t1)"/></g>
+          <!-- Fine-tuning: future -->
+          <g opacity="0.15"><rect x="178" y="103" width="115" height="44" rx="8" fill="rgba(52,211,153,0.1)" stroke="#059669" stroke-width="1.5"/><text x="235" y="130" text-anchor="middle" fill="#34d399" font-size="11.5" font-weight="600" font-family="Inter,sans-serif">Fine-tuning</text></g>
+          <!-- Training→Model arrow: future -->
+          <g opacity="0.15"><line x1="310" y1="111" x2="405" y2="111" stroke="#7c6ef5" stroke-width="2" marker-end="url(#af-t1)"/></g>
+          <!-- Prompt + arrow: future -->
+          <g opacity="0.15"><rect x="430" y="22" width="90" height="38" rx="8" fill="rgba(34,211,238,0.08)" stroke="#0891b2" stroke-width="1.5"/><text x="475" y="46" text-anchor="middle" fill="#22d3ee" font-size="11.5" font-weight="600" font-family="Inter,sans-serif">Prompt</text><line x1="475" y1="60" x2="475" y2="82" stroke="#0891b2" stroke-width="2" marker-end="url(#afc-t1)"/></g>
+          <!-- Model: future -->
+          <g opacity="0.15"><rect x="410" y="86" width="130" height="50" rx="8" fill="#1e2535" stroke="#242c3d" stroke-width="1.5"/><text x="475" y="116" text-anchor="middle" fill="#e6eaf4" font-size="13" font-weight="700" font-family="Inter,sans-serif">Model</text></g>
+          <!-- Inference + Output: future -->
+          <g opacity="0.15"><line x1="540" y1="111" x2="600" y2="111" stroke="#0891b2" stroke-width="2" marker-end="url(#afc-t1)"/><text x="570" y="101" text-anchor="middle" fill="#22d3ee" font-size="9.5" font-style="italic" font-weight="600" font-family="Inter,sans-serif">Inference</text><rect x="606" y="86" width="80" height="50" rx="8" fill="rgba(34,211,238,0.08)" stroke="#0891b2" stroke-width="1.5"/><text x="646" y="116" text-anchor="middle" fill="#22d3ee" font-size="12" font-weight="600" font-family="Inter,sans-serif">Output</text></g>
+          <!-- Ethical: future -->
+          <g opacity="0.15"><line x1="20" y1="210" x2="686" y2="210" stroke="#b45309" stroke-width="1.5"/><line x1="20" y1="202" x2="20" y2="218" stroke="#b45309" stroke-width="1.5"/><line x1="686" y1="202" x2="686" y2="218" stroke="#b45309" stroke-width="1.5"/><text x="353" y="235" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="700" font-family="Inter,sans-serif">Ethical Considerations</text></g>
+        </svg>
+      </div>
+
       <hr class="section-divider">
 
       <p style="margin-bottom:1.5rem;color:var(--clr-text-muted);line-height:1.8;">
@@ -353,8 +449,36 @@
         <div class="breadcrumb">Task 2 of 5</div>
         <span class="duration">~15 min</span>
         <h2>Loading a GPT-2 Model</h2>
-        <p class="task-intro">In task 2, we load in GPT2, an LLM which can be locally downloaded to your computer.</p>
       </div>
+
+      <div class="progress-chart-wrap">
+        <p class="progress-chart-where">Pre-training explained how a model is built from data. We now load a real pre-trained model and run it.</p>
+        <svg viewBox="0 0 700 250" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;">
+          <defs>
+            <marker id="af-t2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7c6ef5"/></marker>
+            <marker id="afc-t2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0891b2"/></marker>
+          </defs>
+          <!-- Training outer: done -->
+          <g opacity="0.5"><rect x="20" y="63" width="290" height="96" rx="16" fill="rgba(124,110,245,0.05)" stroke="#7c6ef5" stroke-width="1.5"/><text x="165" y="88" text-anchor="middle" fill="#a899f8" font-size="13" font-weight="700" font-family="Inter,sans-serif">Training</text></g>
+          <!-- Pre-training: done -->
+          <g opacity="0.5"><rect x="40" y="103" width="115" height="44" rx="8" fill="rgba(124,110,245,0.12)" stroke="#7c6ef5" stroke-width="1.5"/><text x="97" y="130" text-anchor="middle" fill="#a899f8" font-size="11.5" font-weight="600" font-family="Inter,sans-serif">Pre-training</text></g>
+          <!-- Pre→Fine arrow: future -->
+          <g opacity="0.15"><line x1="155" y1="125" x2="172" y2="125" stroke="#7c6ef5" stroke-width="2" marker-end="url(#af-t2)"/></g>
+          <!-- Fine-tuning: future -->
+          <g opacity="0.15"><rect x="178" y="103" width="115" height="44" rx="8" fill="rgba(52,211,153,0.1)" stroke="#059669" stroke-width="1.5"/><text x="235" y="130" text-anchor="middle" fill="#34d399" font-size="11.5" font-weight="600" font-family="Inter,sans-serif">Fine-tuning</text></g>
+          <!-- Training→Model arrow: active -->
+          <g opacity="1"><line x1="310" y1="111" x2="405" y2="111" stroke="#7c6ef5" stroke-width="2" marker-end="url(#af-t2)"/></g>
+          <!-- Prompt + arrow: active -->
+          <g opacity="1"><rect x="430" y="22" width="90" height="38" rx="8" fill="rgba(34,211,238,0.08)" stroke="#0891b2" stroke-width="1.5"/><text x="475" y="46" text-anchor="middle" fill="#22d3ee" font-size="11.5" font-weight="600" font-family="Inter,sans-serif">Prompt</text><line x1="475" y1="60" x2="475" y2="82" stroke="#0891b2" stroke-width="2" marker-end="url(#afc-t2)"/></g>
+          <!-- Model: HIGHLIGHT -->
+          <g opacity="1"><rect x="410" y="86" width="130" height="50" rx="8" fill="#1e2535" stroke="#e6eaf4" stroke-width="2.5"/><text x="475" y="116" text-anchor="middle" fill="#e6eaf4" font-size="13" font-weight="700" font-family="Inter,sans-serif">Model</text><circle cx="537" cy="83" r="6" fill="#fbbf24"/></g>
+          <!-- Inference + Output: future -->
+          <g opacity="0.15"><line x1="540" y1="111" x2="600" y2="111" stroke="#0891b2" stroke-width="2" marker-end="url(#afc-t2)"/><text x="570" y="101" text-anchor="middle" fill="#22d3ee" font-size="9.5" font-style="italic" font-weight="600" font-family="Inter,sans-serif">Inference</text><rect x="606" y="86" width="80" height="50" rx="8" fill="rgba(34,211,238,0.08)" stroke="#0891b2" stroke-width="1.5"/><text x="646" y="116" text-anchor="middle" fill="#22d3ee" font-size="12" font-weight="600" font-family="Inter,sans-serif">Output</text></g>
+          <!-- Ethical: future -->
+          <g opacity="0.15"><line x1="20" y1="210" x2="686" y2="210" stroke="#b45309" stroke-width="1.5"/><line x1="20" y1="202" x2="20" y2="218" stroke="#b45309" stroke-width="1.5"/><line x1="686" y1="202" x2="686" y2="218" stroke="#b45309" stroke-width="1.5"/><text x="353" y="235" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="700" font-family="Inter,sans-serif">Ethical Considerations</text></g>
+        </svg>
+      </div>
+
       <hr class="section-divider">
 
       <p style="margin-bottom:1.5rem;color:var(--clr-text-muted);line-height:1.8;">
@@ -419,21 +543,48 @@
         </button>
         <button class="nav-btn nav-home-btn" data-nav="home">Home</button>
         <button class="nav-btn primary" data-nav="task3">
-          Task 3: Ethics <span class="arrow">&rarr;</span>
+          Task 3: Token Prediction <span class="arrow">&rarr;</span>
         </button>
       </nav>
     </section>
 
-    <!-- ==================== TASK 3 ==================== -->
-    <section id="task3" class="page">
+    <!-- ==================== TASK 5 ==================== -->
+    <section id="task5" class="page">
       <div class="task-header">
-        <div class="breadcrumb">Task 3 of 5</div>
+        <div class="breadcrumb">Task 5 of 5</div>
         <span class="duration">~25 min</span>
         <h2>Ethical Considerations</h2>
-        <p class="task-intro">Building and using AI systems raises many ethical questions that go well beyond the technology itself, from
-          environmental costs and labour exploitation to copyright disputes and safety risks. As a group, <b>choose one of the four case studies below</b>,
-          read through the material, and then discuss the questions at the bottom of the page.</p>
       </div>
+
+      <!-- Progress flowchart: Task 5 -->
+      <div class="progress-chart-wrap">
+        <p class="progress-chart-where">We have completed pre-training, inference, and fine-tuning. We now turn to the ethical considerations that surround the development and use of AI systems.</p>
+        <svg viewBox="0 0 700 250" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;">
+          <defs>
+            <marker id="af-t5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7c6ef5"/></marker>
+            <marker id="afc-t5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0891b2"/></marker>
+          </defs>
+          <!-- Training outer: done -->
+          <g opacity="0.5"><rect x="20" y="63" width="290" height="96" rx="16" fill="rgba(124,110,245,0.05)" stroke="#7c6ef5" stroke-width="1.5"/><text x="165" y="88" text-anchor="middle" fill="#a899f8" font-size="13" font-weight="700" font-family="Inter,sans-serif">Training</text></g>
+          <!-- Pre-training: done -->
+          <g opacity="0.5"><rect x="40" y="103" width="115" height="44" rx="8" fill="rgba(124,110,245,0.12)" stroke="#7c6ef5" stroke-width="1.5"/><text x="97" y="130" text-anchor="middle" fill="#a899f8" font-size="11.5" font-weight="600" font-family="Inter,sans-serif">Pre-training</text></g>
+          <!-- Pre→Fine arrow: done -->
+          <g opacity="0.5"><line x1="155" y1="125" x2="172" y2="125" stroke="#7c6ef5" stroke-width="2" marker-end="url(#af-t5)"/></g>
+          <!-- Fine-tuning: done -->
+          <g opacity="0.5"><rect x="178" y="103" width="115" height="44" rx="8" fill="rgba(52,211,153,0.18)" stroke="#059669" stroke-width="1.5"/><text x="235" y="130" text-anchor="middle" fill="#34d399" font-size="11.5" font-weight="600" font-family="Inter,sans-serif">Fine-tuning</text></g>
+          <!-- Training→Model arrow: done -->
+          <g opacity="0.5"><line x1="310" y1="111" x2="405" y2="111" stroke="#7c6ef5" stroke-width="2" marker-end="url(#af-t5)"/></g>
+          <!-- Prompt + arrow: done -->
+          <g opacity="0.5"><rect x="430" y="22" width="90" height="38" rx="8" fill="rgba(34,211,238,0.08)" stroke="#0891b2" stroke-width="1.5"/><text x="475" y="46" text-anchor="middle" fill="#22d3ee" font-size="11.5" font-weight="600" font-family="Inter,sans-serif">Prompt</text><line x1="475" y1="60" x2="475" y2="82" stroke="#0891b2" stroke-width="2" marker-end="url(#afc-t5)"/></g>
+          <!-- Model: done -->
+          <g opacity="0.5"><rect x="410" y="86" width="130" height="50" rx="8" fill="#1e2535" stroke="#242c3d" stroke-width="1.5"/><text x="475" y="116" text-anchor="middle" fill="#e6eaf4" font-size="13" font-weight="700" font-family="Inter,sans-serif">Model</text></g>
+          <!-- Inference + Output: done -->
+          <g opacity="0.5"><line x1="540" y1="111" x2="600" y2="111" stroke="#0891b2" stroke-width="2" marker-end="url(#afc-t5)"/><text x="570" y="101" text-anchor="middle" fill="#22d3ee" font-size="9.5" font-style="italic" font-weight="600" font-family="Inter,sans-serif">Inference</text><rect x="606" y="86" width="80" height="50" rx="8" fill="rgba(34,211,238,0.08)" stroke="#0891b2" stroke-width="1.5"/><text x="646" y="116" text-anchor="middle" fill="#22d3ee" font-size="12" font-weight="600" font-family="Inter,sans-serif">Output</text></g>
+          <!-- Ethical: HIGHLIGHT -->
+          <g opacity="1"><line x1="20" y1="210" x2="686" y2="210" stroke="#b45309" stroke-width="2.5"/><line x1="20" y1="202" x2="20" y2="218" stroke="#b45309" stroke-width="2.5"/><line x1="686" y1="202" x2="686" y2="218" stroke="#b45309" stroke-width="2.5"/><text x="353" y="235" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="700" font-family="Inter,sans-serif">Ethical Considerations</text><circle cx="353" cy="207" r="6" fill="#fbbf24"/></g>
+        </svg>
+      </div>
+
       <hr class="section-divider">
 
       <!-- ===== CASE STUDY BUTTONS (row) ===== -->
@@ -556,7 +707,7 @@
 
       <div class="case-study-body" id="case4">
         <h3>The Issue</h3>
-        <p>Later in the lab (in Task 5) you will fine-tune a model yourself.
+        <p>Later in the lab (in Task 4) you will fine-tune a model yourself.
           Fine-tuning is a powerful technique, but it can also be dangerous. AI
           developers spend significant effort aligning their models to behave safely
           and ethically. However, once a model is publicly released, anyone can
@@ -638,24 +789,52 @@
       </div>
 
       <nav class="page-nav">
-        <button class="nav-btn" data-nav="task2">
-          <span class="arrow">&larr;</span> Task 2
+        <button class="nav-btn" data-nav="task4">
+          <span class="arrow">&larr;</span> Task 4
         </button>
         <button class="nav-btn nav-home-btn" data-nav="home">Home</button>
-        <button class="nav-btn primary" data-nav="task4">
-          Task 4: Token Prediction <span class="arrow">&rarr;</span>
+        <button class="nav-btn primary" data-nav="conclusion">
+          Conclusion <span class="arrow">&rarr;</span>
         </button>
       </nav>
     </section>
 
-    <!-- ==================== TASK 4 ==================== -->
-    <section id="task4" class="page">
+    <!-- ==================== TASK 3 ==================== -->
+    <section id="task3" class="page">
       <div class="task-header">
-        <div class="breadcrumb">Task 4 of 5</div>
+        <div class="breadcrumb">Task 3 of 5</div>
         <span class="duration">~20 min</span>
         <h2>Token Prediction</h2>
-        <p class="task-intro">In task 4, we unpack how an LLM decides which token to output next.</p>
       </div>
+
+      <div class="progress-chart-wrap">
+        <p class="progress-chart-where">The model is loaded and running. We now look more closely at how it selects the next token — the inference step.</p>
+        <svg viewBox="0 0 700 250" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;">
+          <defs>
+            <marker id="af-t3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7c6ef5"/></marker>
+            <marker id="afc-t3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0891b2"/></marker>
+          </defs>
+          <!-- Training outer: done -->
+          <g opacity="0.5"><rect x="20" y="63" width="290" height="96" rx="16" fill="rgba(124,110,245,0.05)" stroke="#7c6ef5" stroke-width="1.5"/><text x="165" y="88" text-anchor="middle" fill="#a899f8" font-size="13" font-weight="700" font-family="Inter,sans-serif">Training</text></g>
+          <!-- Pre-training: done -->
+          <g opacity="0.5"><rect x="40" y="103" width="115" height="44" rx="8" fill="rgba(124,110,245,0.12)" stroke="#7c6ef5" stroke-width="1.5"/><text x="97" y="130" text-anchor="middle" fill="#a899f8" font-size="11.5" font-weight="600" font-family="Inter,sans-serif">Pre-training</text></g>
+          <!-- Pre→Fine arrow: future -->
+          <g opacity="0.15"><line x1="155" y1="125" x2="172" y2="125" stroke="#7c6ef5" stroke-width="2" marker-end="url(#af-t3)"/></g>
+          <!-- Fine-tuning: future -->
+          <g opacity="0.15"><rect x="178" y="103" width="115" height="44" rx="8" fill="rgba(52,211,153,0.1)" stroke="#059669" stroke-width="1.5"/><text x="235" y="130" text-anchor="middle" fill="#34d399" font-size="11.5" font-weight="600" font-family="Inter,sans-serif">Fine-tuning</text></g>
+          <!-- Training→Model arrow: done -->
+          <g opacity="0.5"><line x1="310" y1="111" x2="405" y2="111" stroke="#7c6ef5" stroke-width="2" marker-end="url(#af-t3)"/></g>
+          <!-- Prompt + arrow: done -->
+          <g opacity="0.5"><rect x="430" y="22" width="90" height="38" rx="8" fill="rgba(34,211,238,0.08)" stroke="#0891b2" stroke-width="1.5"/><text x="475" y="46" text-anchor="middle" fill="#22d3ee" font-size="11.5" font-weight="600" font-family="Inter,sans-serif">Prompt</text><line x1="475" y1="60" x2="475" y2="82" stroke="#0891b2" stroke-width="2" marker-end="url(#afc-t3)"/></g>
+          <!-- Model: done -->
+          <g opacity="0.5"><rect x="410" y="86" width="130" height="50" rx="8" fill="#1e2535" stroke="#242c3d" stroke-width="1.5"/><text x="475" y="116" text-anchor="middle" fill="#e6eaf4" font-size="13" font-weight="700" font-family="Inter,sans-serif">Model</text></g>
+          <!-- Inference + Output: HIGHLIGHT -->
+          <g opacity="1"><line x1="540" y1="111" x2="600" y2="111" stroke="#0891b2" stroke-width="2.5" marker-end="url(#afc-t3)"/><text x="570" y="101" text-anchor="middle" fill="#22d3ee" font-size="9.5" font-style="italic" font-weight="600" font-family="Inter,sans-serif">Inference</text><rect x="606" y="86" width="80" height="50" rx="8" fill="rgba(34,211,238,0.15)" stroke="#0891b2" stroke-width="2.5"/><text x="646" y="116" text-anchor="middle" fill="#22d3ee" font-size="12" font-weight="600" font-family="Inter,sans-serif">Output</text><circle cx="683" cy="83" r="6" fill="#fbbf24"/></g>
+          <!-- Ethical: future -->
+          <g opacity="0.15"><line x1="20" y1="210" x2="686" y2="210" stroke="#b45309" stroke-width="1.5"/><line x1="20" y1="202" x2="20" y2="218" stroke="#b45309" stroke-width="1.5"/><line x1="686" y1="202" x2="686" y2="218" stroke="#b45309" stroke-width="1.5"/><text x="353" y="235" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="700" font-family="Inter,sans-serif">Ethical Considerations</text></g>
+        </svg>
+      </div>
+
       <hr class="section-divider">
 
       <p style="margin-bottom:1.5rem;color:var(--clr-text-muted);line-height:1.8;">
@@ -728,7 +907,7 @@
         <div class="callout-title"><span class="icon">&#128187;</span> On Your Device</div>
         <ol>
           <li>Open your notebook in Google Colab and navigate to the
-            <strong>Task 4</strong> section.</li>
+            <strong>Task 3</strong> section.</li>
           <li>You will see a single code cell that runs the same prompt
             through four different sampling methods: <strong>Greedy</strong>,
             <strong>5-Beam</strong>, <strong>Contrastive Search</strong>,
@@ -768,24 +947,52 @@
       </div>
 
       <nav class="page-nav">
-        <button class="nav-btn" data-nav="task3">
-          <span class="arrow">&larr;</span> Task 3
+        <button class="nav-btn" data-nav="task2">
+          <span class="arrow">&larr;</span> Task 2
         </button>
         <button class="nav-btn nav-home-btn" data-nav="home">Home</button>
-        <button class="nav-btn primary" data-nav="task5">
-          Task 5: Fine-Tuning <span class="arrow">&rarr;</span>
+        <button class="nav-btn primary" data-nav="task4">
+          Task 4: Fine-Tuning <span class="arrow">&rarr;</span>
         </button>
       </nav>
     </section>
 
-    <!-- ==================== TASK 5 ==================== -->
-    <section id="task5" class="page">
+    <!-- ==================== TASK 4 ==================== -->
+    <section id="task4" class="page">
       <div class="task-header">
-        <div class="breadcrumb">Task 5 of 5</div>
+        <div class="breadcrumb">Task 4 of 5</div>
         <span class="duration">~25 min</span>
         <h2>Fine-Tuning</h2>
-        <p class="task-intro">In task 5, we fine-tune GPT-2 on new data to change its behaviour.</p>
       </div>
+
+      <div class="progress-chart-wrap">
+        <p class="progress-chart-where">We have explored pre-training and inference. We now return to training to look at fine-tuning — adapting a model to new data.</p>
+        <svg viewBox="0 0 700 250" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;">
+          <defs>
+            <marker id="af-t4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7c6ef5"/></marker>
+            <marker id="afc-t4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0891b2"/></marker>
+          </defs>
+          <!-- Training outer: active (contains highlight) -->
+          <g opacity="1"><rect x="20" y="63" width="290" height="96" rx="16" fill="rgba(124,110,245,0.05)" stroke="#7c6ef5" stroke-width="1.5"/><text x="165" y="88" text-anchor="middle" fill="#a899f8" font-size="13" font-weight="700" font-family="Inter,sans-serif">Training</text></g>
+          <!-- Pre-training: done -->
+          <g opacity="0.5"><rect x="40" y="103" width="115" height="44" rx="8" fill="rgba(124,110,245,0.12)" stroke="#7c6ef5" stroke-width="1.5"/><text x="97" y="130" text-anchor="middle" fill="#a899f8" font-size="11.5" font-weight="600" font-family="Inter,sans-serif">Pre-training</text></g>
+          <!-- Pre→Fine arrow: active -->
+          <g opacity="1"><line x1="155" y1="125" x2="172" y2="125" stroke="#7c6ef5" stroke-width="2" marker-end="url(#af-t4)"/></g>
+          <!-- Fine-tuning: HIGHLIGHT -->
+          <g opacity="1"><rect x="178" y="103" width="115" height="44" rx="8" fill="rgba(52,211,153,0.18)" stroke="#059669" stroke-width="2.5"/><text x="235" y="130" text-anchor="middle" fill="#34d399" font-size="11.5" font-weight="600" font-family="Inter,sans-serif">Fine-tuning</text><circle cx="290" cy="100" r="6" fill="#fbbf24"/></g>
+          <!-- Training→Model arrow: done -->
+          <g opacity="0.5"><line x1="310" y1="111" x2="405" y2="111" stroke="#7c6ef5" stroke-width="2" marker-end="url(#af-t4)"/></g>
+          <!-- Prompt + arrow: done -->
+          <g opacity="0.5"><rect x="430" y="22" width="90" height="38" rx="8" fill="rgba(34,211,238,0.08)" stroke="#0891b2" stroke-width="1.5"/><text x="475" y="46" text-anchor="middle" fill="#22d3ee" font-size="11.5" font-weight="600" font-family="Inter,sans-serif">Prompt</text><line x1="475" y1="60" x2="475" y2="82" stroke="#0891b2" stroke-width="2" marker-end="url(#afc-t4)"/></g>
+          <!-- Model: done -->
+          <g opacity="0.5"><rect x="410" y="86" width="130" height="50" rx="8" fill="#1e2535" stroke="#242c3d" stroke-width="1.5"/><text x="475" y="116" text-anchor="middle" fill="#e6eaf4" font-size="13" font-weight="700" font-family="Inter,sans-serif">Model</text></g>
+          <!-- Inference + Output: done -->
+          <g opacity="0.5"><line x1="540" y1="111" x2="600" y2="111" stroke="#0891b2" stroke-width="2" marker-end="url(#afc-t4)"/><text x="570" y="101" text-anchor="middle" fill="#22d3ee" font-size="9.5" font-style="italic" font-weight="600" font-family="Inter,sans-serif">Inference</text><rect x="606" y="86" width="80" height="50" rx="8" fill="rgba(34,211,238,0.08)" stroke="#0891b2" stroke-width="1.5"/><text x="646" y="116" text-anchor="middle" fill="#22d3ee" font-size="12" font-weight="600" font-family="Inter,sans-serif">Output</text></g>
+          <!-- Ethical: future -->
+          <g opacity="0.15"><line x1="20" y1="210" x2="686" y2="210" stroke="#b45309" stroke-width="1.5"/><line x1="20" y1="202" x2="20" y2="218" stroke="#b45309" stroke-width="1.5"/><line x1="686" y1="202" x2="686" y2="218" stroke="#b45309" stroke-width="1.5"/><text x="353" y="235" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="700" font-family="Inter,sans-serif">Ethical Considerations</text></g>
+        </svg>
+      </div>
+
       <hr class="section-divider">
 
       <p style="margin-bottom:1.5rem;color:var(--clr-text-muted);line-height:1.8;">
@@ -926,7 +1133,7 @@
 
       <div class="callout device">
         <div class="callout-title"><span class="icon">&#128187;</span> On Your Device</div>
-        <p style="margin-bottom:0.75rem;font-size:0.9rem;color:var(--clr-text-muted);">Open your notebook and navigate to the <strong>Task 5</strong>
+        <p style="margin-bottom:0.75rem;font-size:0.9rem;color:var(--clr-text-muted);">Open your notebook and navigate to the <strong>Task 4</strong>
           section. There are two stages:</p>
         <p style="margin:0.5rem 0 0.25rem;font-size:0.875rem;font-weight:700;color:var(--clr-text);">Stage 1: Fine-tune on a built-in dataset</p>
         <ol>
@@ -964,8 +1171,127 @@
       </p>
 
       <nav class="page-nav">
-        <button class="nav-btn" data-nav="task4">
-          <span class="arrow">&larr;</span> Task 4
+        <button class="nav-btn" data-nav="task3">
+          <span class="arrow">&larr;</span> Task 3
+        </button>
+        <button class="nav-btn nav-home-btn" data-nav="home">Home</button>
+        <button class="nav-btn primary" data-nav="task5">
+          Task 5: Ethics <span class="arrow">&rarr;</span>
+        </button>
+      </nav>
+    </section>
+
+    <!-- ============================================================ -->
+    <!--  CONCLUSION PAGE                                             -->
+    <!-- ============================================================ -->
+    <section id="conclusion" class="page">
+      <div class="task-header">
+        <span class="breadcrumb">Conclusion</span>
+        <h2>What We Covered</h2>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- Completed flowchart -->
+      <svg viewBox="0 0 700 250" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;max-width:700px;margin:0 auto 2rem;">
+        <defs>
+          <marker id="af-conc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7c6ef5"/></marker>
+          <marker id="afc-conc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0891b2"/></marker>
+        </defs>
+        <!-- Training container -->
+        <rect x="20" y="63" width="290" height="96" rx="16" fill="rgba(124,110,245,0.05)" stroke="#7c6ef5" stroke-width="1.5"/>
+        <text x="165" y="88" text-anchor="middle" fill="#a899f8" font-size="13" font-weight="700" font-family="Inter,sans-serif">Training</text>
+        <!-- Pre-training -->
+        <rect x="40" y="103" width="115" height="44" rx="8" fill="rgba(124,110,245,0.12)" stroke="#7c6ef5" stroke-width="1.5"/>
+        <text x="97" y="130" text-anchor="middle" fill="#a899f8" font-size="11.5" font-weight="600" font-family="Inter,sans-serif">Pre-training</text>
+        <!-- Arrow Pre→Fine -->
+        <line x1="155" y1="125" x2="172" y2="125" stroke="#7c6ef5" stroke-width="2" marker-end="url(#af-conc)"/>
+        <!-- Fine-tuning -->
+        <rect x="178" y="103" width="115" height="44" rx="8" fill="rgba(52,211,153,0.18)" stroke="#059669" stroke-width="1.5"/>
+        <text x="235" y="130" text-anchor="middle" fill="#34d399" font-size="11.5" font-weight="600" font-family="Inter,sans-serif">Fine-tuning</text>
+        <!-- Arrow Training→Model -->
+        <line x1="310" y1="111" x2="405" y2="111" stroke="#7c6ef5" stroke-width="2" marker-end="url(#af-conc)"/>
+        <!-- Prompt -->
+        <rect x="430" y="22" width="90" height="38" rx="8" fill="rgba(34,211,238,0.08)" stroke="#0891b2" stroke-width="1.5"/>
+        <text x="475" y="46" text-anchor="middle" fill="#22d3ee" font-size="11.5" font-weight="600" font-family="Inter,sans-serif">Prompt</text>
+        <!-- Arrow Prompt→Model -->
+        <line x1="475" y1="60" x2="475" y2="82" stroke="#0891b2" stroke-width="2" marker-end="url(#afc-conc)"/>
+        <!-- Model -->
+        <rect x="410" y="86" width="130" height="50" rx="8" fill="#1e2535" stroke="#242c3d" stroke-width="1.5"/>
+        <text x="475" y="116" text-anchor="middle" fill="#e6eaf4" font-size="13" font-weight="700" font-family="Inter,sans-serif">Model</text>
+        <!-- Arrow Model→Output + Inference label -->
+        <line x1="540" y1="111" x2="600" y2="111" stroke="#0891b2" stroke-width="2" marker-end="url(#afc-conc)"/>
+        <text x="570" y="101" text-anchor="middle" fill="#22d3ee" font-size="9.5" font-style="italic" font-weight="600" font-family="Inter,sans-serif">Inference</text>
+        <!-- Output -->
+        <rect x="606" y="86" width="80" height="50" rx="8" fill="rgba(34,211,238,0.08)" stroke="#0891b2" stroke-width="1.5"/>
+        <text x="646" y="116" text-anchor="middle" fill="#22d3ee" font-size="12" font-weight="600" font-family="Inter,sans-serif">Output</text>
+        <!-- Ethical Considerations -->
+        <line x1="20" y1="210" x2="686" y2="210" stroke="#b45309" stroke-width="1.5"/>
+        <line x1="20" y1="202" x2="20" y2="218" stroke="#b45309" stroke-width="1.5"/>
+        <line x1="686" y1="202" x2="686" y2="218" stroke="#b45309" stroke-width="1.5"/>
+        <text x="353" y="235" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="700" font-family="Inter,sans-serif">Ethical Considerations</text>
+      </svg>
+
+      <!-- Learning outcomes recap -->
+      <h3 style="margin-bottom:0.75rem;">Learning Outcomes</h3>
+      <p style="font-size:0.9rem;color:var(--clr-text-muted);margin-bottom:0.75rem;">By completing this lab, you should now be able to:</p>
+      <ul style="list-style:none;padding:0;margin:0 0 2rem;display:flex;flex-direction:column;gap:0.5rem;">
+        <li style="font-size:0.9rem;color:var(--clr-text-muted);padding-left:1.4rem;position:relative;line-height:1.6;">
+          <span style="position:absolute;left:0;color:var(--clr-primary);">&#10003;</span>
+          Understand the key steps in LLM pre-training: tokenisation, embedding, attention, next-token prediction, loss calculation, and backpropagation.
+        </li>
+        <li style="font-size:0.9rem;color:var(--clr-text-muted);padding-left:1.4rem;position:relative;line-height:1.6;">
+          <span style="position:absolute;left:0;color:var(--clr-primary);">&#10003;</span>
+          Understand how training differs from inference, and that there are different sampling methods for selecting the next token at inference time.
+        </li>
+        <li style="font-size:0.9rem;color:var(--clr-text-muted);padding-left:1.4rem;position:relative;line-height:1.6;">
+          <span style="position:absolute;left:0;color:var(--clr-primary);">&#10003;</span>
+          Understand the difference between pre-training and fine-tuning.
+        </li>
+        <li style="font-size:0.9rem;color:var(--clr-text-muted);padding-left:1.4rem;position:relative;line-height:1.6;">
+          <span style="position:absolute;left:0;color:var(--clr-primary);">&#10003;</span>
+          Critically evaluate the ethical concerns related to LLM pre-training and fine-tuning.
+        </li>
+      </ul>
+
+      <!-- Task ↔ Learning outcome table -->
+      <h3 style="margin-bottom:0.75rem;">Tasks &amp; Learning Outcomes</h3>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+          <thead>
+            <tr style="border-bottom:2px solid var(--clr-border);">
+              <th style="text-align:left;padding:0.6rem 0.75rem;color:var(--clr-text);font-weight:700;white-space:nowrap;">Task</th>
+              <th style="text-align:left;padding:0.6rem 0.75rem;color:var(--clr-text);font-weight:700;">Learning Outcome(s) Addressed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--clr-border);">
+              <td style="padding:0.65rem 0.75rem;color:var(--clr-accent);font-weight:600;white-space:nowrap;">Task 1 &mdash; Model Pre-Training</td>
+              <td style="padding:0.65rem 0.75rem;color:var(--clr-text-muted);line-height:1.6;">Understand the key steps in LLM pre-training: tokenisation, embedding, attention, next-token prediction, loss calculation, and backpropagation.</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--clr-border);background:rgba(124,110,245,0.03);">
+              <td style="padding:0.65rem 0.75rem;color:var(--clr-accent);font-weight:600;white-space:nowrap;">Task 2 &mdash; Loading GPT-2</td>
+              <td style="padding:0.65rem 0.75rem;color:var(--clr-text-muted);line-height:1.6;">Understand how training differs from inference — loading and running a pre-trained model demonstrates the inference process in practice.</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--clr-border);">
+              <td style="padding:0.65rem 0.75rem;color:var(--clr-accent);font-weight:600;white-space:nowrap;">Task 3 &mdash; Token Prediction</td>
+              <td style="padding:0.65rem 0.75rem;color:var(--clr-text-muted);line-height:1.6;">Understand how training differs from inference, and that there are different sampling methods for selecting the next token at inference time.</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--clr-border);background:rgba(124,110,245,0.03);">
+              <td style="padding:0.65rem 0.75rem;color:var(--clr-accent);font-weight:600;white-space:nowrap;">Task 4 &mdash; Fine-Tuning</td>
+              <td style="padding:0.65rem 0.75rem;color:var(--clr-text-muted);line-height:1.6;">Understand the difference between pre-training and fine-tuning.</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--clr-border);">
+              <td style="padding:0.65rem 0.75rem;color:var(--clr-accent);font-weight:600;white-space:nowrap;">Task 5 &mdash; Ethical Considerations</td>
+              <td style="padding:0.65rem 0.75rem;color:var(--clr-text-muted);line-height:1.6;">Critically evaluate the ethical concerns related to LLM pre-training and fine-tuning.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <nav class="page-nav" style="margin-top:2rem;">
+        <button class="nav-btn" data-nav="task5">
+          <span class="arrow">&larr;</span> Task 5
         </button>
         <button class="nav-btn nav-home-btn" data-nav="home">Home</button>
       </nav>
@@ -973,7 +1299,7 @@
 
   </main>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>
 
